@@ -1,0 +1,81 @@
+granularity: 10
+refresh_interval: 5
+testing:
+  enabled: false
+  show_log: true
+  output_events: true
+  speed: 60.0
+  times:
+    - name: 'Test 1'
+      start: '2021-08-12 23:00'
+      end: '2021-08-13 07:30'
+    - name: 'Test 2'
+      start: '2021-08-13 23:00'
+      end: '2021-08-14 07:30'
+
+controllers:
+  - name: 'ELK M1 Controller 1'
+    zones:
+      - name: 'Zone 1'
+        entity_id: 'switch.elkm1_output_sprinklerzone01'
+      - name: 'Zone 2'
+        entity_id: 'switch.elkm1_output_sprinklerzone02'
+      - name: 'Zone 3'
+        entity_id: 'switch.elkm1_output_sprinklerzone03'
+      - name: 'Zone 4'
+        entity_id: 'switch.elkm1_output_sprinklerzone04'
+      - name: 'Zone 5'
+        entity_id: 'switch.elkm1_output_sprinklerzone05'
+    sequences:
+      - name: 'Front Lawn'
+        delay: '00:00:10'
+        schedules:
+          - name: 'Normal Schedule C1'
+            time:
+              sun: 'sunrise'
+              before: '02:40'
+            weekday: [tue, thu, sat]
+            month: [may, jun, jul, aug, sep, oct]
+            duration: '02:40'
+        zones:
+          - zone_id: 1
+          - zone_id: 2
+          - zone_id: 3
+          - zone_id: 4
+          - zone_id: 5
+    all_zones_config:
+      maximum: '00:30'
+  - name: 'Elk M1 Controller 2'
+    zones:
+      - name: 'Zone 6'
+        entity_id: 'switch.elkm1_output_sprinklerzone06'
+      - name: 'Zone 7'
+        entity_id: 'switch.elkm1_output_sprinklerzone07'
+      - name: 'Zone 8'
+        entity_id: 'switch.elkm1_output_sprinklerzone08'
+      - name: 'Zone 9'
+        entity_id: 'switch.elkm1_output_sprinklerzone09'
+      - name: 'Zone 10'
+        entity_id: 'switch.elkm1_output_sprinklerzone10'
+      - name: 'Zone 11'
+        entity_id: 'switch.elkm1_output_sprinklerzone11'
+    sequences:
+      - name: 'Back Lawn'
+        delay: '00:00:10'
+        schedules:
+          - name: 'Normal Schedule C2'
+            time:
+              sun: 'sunrise'
+              before: '03:10'
+            weekday: [mon, wed, fri]
+            month: [may, jun, jul, aug, sep, oct]
+            duration: '03:10'
+        zones:
+          - zone_id: 1
+          - zone_id: 2
+          - zone_id: 3
+          - zone_id: 4
+          - zone_id: 5
+          - zone_id: 6
+    all_zones_config:
+      maximum: '00:30'

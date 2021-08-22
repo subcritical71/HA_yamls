@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    ecobee_hvac_status_downstairs:
+      friendly_name: Downstairs HVAC Status
+      value_template: "{{ state_attr('climate.ecobee_thermostat_downstairs', 'hvac_action') }}"
+    ecobee_hvac_status_upstairs:
+      friendly_name: Upstairs HVAC Status
+      value_template: "{{ state_attr('climate.ecobee_thermostat_upstairs', 'hvac_action') }}"

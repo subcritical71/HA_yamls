@@ -1,0 +1,20 @@
+- platform: rest
+  resource_template: http://api.weatherapi.com/v1/history.json?key=877048e3f0d54a7b970202939211608&q=37.36,-77.65&dt={{ now().strftime("%Y-%m-%d")|urlencode }}
+  name: weatherapi
+  scan_interval: 900
+  json_attributes_path: "$.forecast.forecastday.['day']"
+  value_template: "200"
+  json_attributes:
+    - "totalprecip_in"
+    - "totalprecip_mm"
+
+- platform: template
+  sensors:
+    weatherapi_totalprecip_in:
+      friendly_name: Daily Precipitation Total (in)
+#      unit_of_measurement: inch
+      value_template: "{{ state_attr('sensor.weatherapi', 'totalprecip_in') }}"
+    weatherapi_totalprecip_mm:
+      friendly_name: Daily Precipitation Total (mm)
+#      unit_of_measurement: mm
+      value_template: "{{ state_attr('sensor.weatherapi', 'totalprecip_mm') }}"
