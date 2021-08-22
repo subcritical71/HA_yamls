@@ -1,0 +1,205 @@
+- alias: Smart Irrigation adjustment
+  description: Adjust watering times based on smart irrigation calculations
+  trigger:
+    - platform: time
+      at: "23:30"
+  action:
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c1_z1
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z01_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c1_z2
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z02_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c1_z3
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z03_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c1_z4
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z04_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c1_z5
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z05_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c2_z1
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z06_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c2_z2
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z07_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c2_z3
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z08_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c2_z4
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z09_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c2_z5
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z10_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+    - service: irrigation_unlimited.adjust_time
+      data:
+        entity_id: binary_sensor.irrigation_unlimited_c2_z6
+        actual: >
+          {% set t = states('sensor.smart_irrigation_z11_daily_adjusted_run_time') | int %}
+          {{ '{:02d}:{:02d}:{:02d}'.format((t // 3600) % 24, (t % 3600) // 60, (t % 3600) % 60) }}
+  mode: single
+
+- alias: Smart Irrigation reset bucket c1z1
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c1_z1
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z01_reset_bucket
+
+- alias: Smart Irrigation reset bucket c1z2
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c1_z2
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z02_reset_bucket
+
+- alias: Smart Irrigation reset bucket c1z3
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c1_z3
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z03_reset_bucket
+
+- alias: Smart Irrigation reset bucket c1z4
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c1_z4
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z04_reset_bucket
+
+- alias: Smart Irrigation reset bucket c1z5
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c1_z5
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z05_reset_bucket
+
+- alias: Smart Irrigation reset bucket c2z1
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c2_z1
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z06_reset_bucket
+
+- alias: Smart Irrigation reset bucket c2z2
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c2_z2
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z07_reset_bucket
+
+- alias: Smart Irrigation reset bucket c2z3
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c2_z3
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z08_reset_bucket
+
+- alias: Smart Irrigation reset bucket c2z4
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c2_z4
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z09_reset_bucket
+
+- alias: Smart Irrigation reset bucket c2z5
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c2_z5
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z10_reset_bucket
+
+- alias: Smart Irrigation reset bucket c2z6
+  description: Resets the Smart Irrigation bucket after watering
+  trigger:
+    - platform: state
+      entity_id:
+        # Add Irrigation Unlimited sensors here
+        - binary_sensor.irrigation_unlimited_c2_z6
+      from: "on"
+      to: "off"
+  action:
+    - service: smart_irrigation.smart_irrigation_z11_reset_bucket
