@@ -1,0 +1,71 @@
+- platform: ted5000
+  host: 10.136.25.15
+
+- platform: integration
+  source: sensor.ted5000_power_sec
+  name: energy_spent
+  unit_prefix: k
+  round: 2
+
+## TED5000 Instantaneous values (Power, Voltage)
+- platform: rest
+  resource_template: http://10.136.25.15/history/secondhistory.xml?MTU=0&COUNT=1&INDEX=1
+  name: ted5000_sec
+  scan_interval: 1
+  json_attributes_path: "$.History.['SECOND']"
+  value_template: "200"
+  json_attributes:
+    - "POWER"
+    - "VOLTAGE"
+
+- platform: template
+  sensors:
+    ted5000_power_sec:
+      friendly_name: Power Consumption
+      unit_of_measurement: W
+      value_template: "{{ state_attr('sensor.ted5000_sec', 'POWER') }}"
+    ted5000_voltage_sec:
+      friendly_name: Incoming Voltage
+      unit_of_measurement: V
+      value_template: "{{ state_attr('sensor.ted5000_sec', 'VOLTAGE') | multiply(0.1) }}"
+
+
+
+## TED5000 Trending values by minute (Power, Voltage)
+#- platform: rest
+#  resource_template: http://10.136.25.15/history/minutehistory.xml?MTU=0&COUNT=1&INDEX=1
+#  name: ted5000_min
+#  scan_interval: 60
+#  json_attributes_path: "$.History.['MINUTE']"
+#  value_template: "200"
+#  json_attributes:
+#    - "POWER"
+#    - "VOLTAGE"
+
+#- platform: template
+#  sensors:
+#    ted5000_power_min:
+#      friendly_name: Power Consumption
+#      unit_of_measurement: W
+#      value_template: "{{ state_attr('sensor.ted5000_min', 'POWER') }}"
+#    ted5000_voltage_min:
+#      friendly_name: Incoming Voltage
+#      unit_of_measurement: V
+#      value_template: "{{ state_attr('sensor.ted5000_min', 'VOLTAGE') | multiply(0.1) }}"
+
+## TED5000 Trending values by hour (Power, Voltage)
+#- platform: rest
+#  resource_template: http://10.136.25.15/history/hourlyhistory.xml?MTU=0&COUNT=1&INDEX=1
+#  name: ted5000_hrly
+#  scan_interval: 3600
+#  json_attributes_path: "$.History.['HOUR']"
+#  value_template: "200"
+#  json_attributes:
+#    - "POWER"
+
+#- platform: template
+#  sensors:
+#    ted5000_power_hrly:
+#      friendly_name: Power Consumption
+#      unit_of_measurement: kW/hr
+#      value_template: "{{ state_attr('sensor.ted5000_min', 'POWER' | multiply(0.001)) }}"

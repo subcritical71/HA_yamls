@@ -1,0 +1,480 @@
+- platform: history_stats
+  name: elkm1_zone_1_history_today
+  entity_id: binary_sensor.smart_irrigation_z01_stats
+  <<: &common_history_today
+    state: 'on'
+    type: time
+    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: '{{ now() }}'
+- platform: history_stats
+  name: elkm1_zone_2_history_today
+  entity_id: binary_sensor.smart_irrigation_z02_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_3_history_today
+  entity_id: binary_sensor.smart_irrigation_z03_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_4_history_today
+  entity_id: binary_sensor.smart_irrigation_z04_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_5_history_today
+  entity_id: binary_sensor.smart_irrigation_z05_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_6_history_today
+  entity_id: binary_sensor.smart_irrigation_z06_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_7_history_today
+  entity_id: binary_sensor.smart_irrigation_z07_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_8_history_today
+  entity_id: binary_sensor.smart_irrigation_z08_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_9_history_today
+  entity_id: binary_sensor.smart_irrigation_z09_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_10_history_today
+  entity_id: binary_sensor.smart_irrigation_z10_stats
+  <<: *common_history_today
+- platform: history_stats
+  name: elkm1_zone_11_history_today
+  entity_id: binary_sensor.smart_irrigation_z11_stats
+  <<: *common_history_today
+
+
+- platform: history_stats
+  name: elkm1_zone_1_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z01_stats
+  <<: &common_history_yesterday
+    state: 'on'
+    type: time
+    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    duration:
+      hours: 24
+- platform: history_stats
+  name: elkm1_zone_2_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z02_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_3_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z03_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_4_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z04_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_5_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z05_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_6_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z06_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_7_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z07_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_8_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z08_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_9_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z09_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_10_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z10_stats
+  <<: *common_history_yesterday
+- platform: history_stats
+  name: elkm1_zone_11_history_yesterday
+  entity_id: binary_sensor.smart_irrigation_z11_stats
+  <<: *common_history_yesterday
+
+- platform: history_stats
+  name: elkm1_zone_1_history_week
+  entity_id: binary_sensor.smart_irrigation_z01_stats
+  <<: &common_history_week
+    state: 'on'
+    type: time
+    start: '{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}'
+    end: '{{ now() }}'
+- platform: history_stats
+  name: elkm1_zone_2_history_week
+  entity_id: binary_sensor.smart_irrigation_z02_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_3_history_week
+  entity_id: binary_sensor.smart_irrigation_z03_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_4_history_week
+  entity_id: binary_sensor.smart_irrigation_z04_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_5_history_week
+  entity_id: binary_sensor.smart_irrigation_z05_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_6_history_week
+  entity_id: binary_sensor.smart_irrigation_z06_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_7_history_week
+  entity_id: binary_sensor.smart_irrigation_z07_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_8_history_week
+  entity_id: binary_sensor.smart_irrigation_z08_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_9_history_week
+  entity_id: binary_sensor.smart_irrigation_z09_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_10_history_week
+  entity_id: binary_sensor.smart_irrigation_z10_stats
+  <<: *common_history_week
+- platform: history_stats
+  name: elkm1_zone_11_history_week
+  entity_id: binary_sensor.smart_irrigation_z11_stats
+  <<: *common_history_week
+
+- platform: history_stats
+  name: elkm1_zone_1_history_month
+  entity_id: binary_sensor.smart_irrigation_z01_stats
+  <<: &common_history_month
+    state: 'on'
+    type: time
+    start: '{{ now().replace(day=1).replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+- platform: history_stats
+  name: elkm1_zone_2_history_month
+  entity_id: binary_sensor.smart_irrigation_z02_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_3_history_month
+  entity_id: binary_sensor.smart_irrigation_z03_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_4_history_month
+  entity_id: binary_sensor.smart_irrigation_z04_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_5_history_month
+  entity_id: binary_sensor.smart_irrigation_z05_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_6_history_month
+  entity_id: binary_sensor.smart_irrigation_z06_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_7_history_month
+  entity_id: binary_sensor.smart_irrigation_z07_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_8_history_month
+  entity_id: binary_sensor.smart_irrigation_z08_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_9_history_month
+  entity_id: binary_sensor.smart_irrigation_z09_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_10_history_month
+  entity_id: binary_sensor.smart_irrigation_z10_stats
+  <<: *common_history_month
+- platform: history_stats
+  name: elkm1_zone_11_history_month
+  entity_id: binary_sensor.smart_irrigation_z11_stats
+  <<: *common_history_month
+
+- platform: history_stats
+  name: elkm1_zone_1_history_year
+  entity_id: binary_sensor.smart_irrigation_z01_stats
+  <<: &common_history_year
+    state: 'on'
+    type: time
+    start: '{{ now().replace(month=1).replace(day=1).replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+- platform: history_stats
+  name: elkm1_zone_2_history_year
+  entity_id: binary_sensor.smart_irrigation_z02_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_3_history_year
+  entity_id: binary_sensor.smart_irrigation_z03_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_4_history_year
+  entity_id: binary_sensor.smart_irrigation_z04_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_5_history_year
+  entity_id: binary_sensor.smart_irrigation_z05_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_6_history_year
+  entity_id: binary_sensor.smart_irrigation_z06_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_7_history_year
+  entity_id: binary_sensor.smart_irrigation_z07_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_8_history_year
+  entity_id: binary_sensor.smart_irrigation_z08_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_9_history_year
+  entity_id: binary_sensor.smart_irrigation_z09_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_10_history_year
+  entity_id: binary_sensor.smart_irrigation_z10_stats
+  <<: *common_history_year
+- platform: history_stats
+  name: elkm1_zone_11_history_year
+  entity_id: binary_sensor.smart_irrigation_z11_stats
+  <<: *common_history_year
+
+- platform: template
+  sensors:
+    elkm1_zone_1_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z01_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_1_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_1_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_1_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_1_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_1_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_1_history_year') + state_attr('sensor.elkm1_zone_1_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_2_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z02_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_2_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_2_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_2_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_2_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_2_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_2_history_year') + state_attr('sensor.elkm1_zone_2_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_3_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z03_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_3_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_3_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_3_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_3_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_3_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_3_history_year') + state_attr('sensor.elkm1_zone_3_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_4_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z04_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_4_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_4_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_4_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_4_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_4_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_4_history_year') + state_attr('sensor.elkm1_zone_4_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_5_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z05_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_5_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_5_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_5_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_5_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_5_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_5_history_year') + state_attr('sensor.elkm1_zone_5_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_6_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z06_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_6_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_6_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_6_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_6_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_6_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_6_history_year') + state_attr('sensor.elkm1_zone_6_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_7_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z07_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_7_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_7_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_7_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_7_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_7_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_7_history_year') + state_attr('sensor.elkm1_zone_7_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_8_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z08_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_8_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_8_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_8_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_8_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_8_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_8_history_year') + state_attr('sensor.elkm1_zone_8_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_9_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z09_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_9_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_9_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_9_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_9_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_9_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_9_history_year') + state_attr('sensor.elkm1_zone_9_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_10_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z10_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_10_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_10_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_10_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_10_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_10_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_10_history_year') + state_attr('sensor.elkm1_zone_10_history_year', 'unit_of_measurement') }}
+
+    elkm1_zone_11_stats:
+      icon_template: >-
+        {% if is_state('binary_sensor.smart_irrigation_z11_stats', 'on') %}
+          mdi:chart-line-stacked
+        {% else %}
+          mdi:chart-line
+        {% endif %}
+      value_template: >-
+        {{ state_attr('sensor.elkm1_zone_11_history_today', 'value') }}
+      attribute_templates:
+        today: >-
+          {{ state_attr('sensor.elkm1_zone_11_history_today', 'value') }}
+        yesterday: >-
+          {{ state_attr('sensor.elkm1_zone_11_history_yesterday', 'value') }}
+        week: >-
+          {{ state_attr('sensor.elkm1_zone_11_history_week', 'value') }}
+        month: >-
+          {{ state_attr('sensor.elkm1_zone_11_history_month', 'value') }}
+        year: >-
+          {{ states('sensor.elkm1_zone_11_history_year') + state_attr('sensor.elkm1_zone_11_history_year', 'unit_of_measurement') }}
+
