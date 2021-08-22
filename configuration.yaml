@@ -1,0 +1,68 @@
+homeassistant:
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 88
+  unit_system: imperial
+  time_zone: "America/New_York"
+  currency: USD
+
+  packages: !include_dir_named packages
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+default_config:
+
+sensor: !include_dir_merge_list sensors/
+
+automation: !include automations.yaml
+binary_sensor: !include binary_sensors.yaml
+device_tracker: !include device_trackers.yaml
+group: !include groups.yaml
+irrigation_unlimited: !include irrigation_unlimited.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+smart_irrigation: !include smart_irrigation.yaml
+switch: !include switchs.yaml
+zone: !include zones.yaml
+
+tts:    # Text to speech
+  - platform: google_translate
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: !secret influxdb_user
+  password: !secret influxdb_pass
+  max_retries: 3
+  default_measurement: state
+  exclude:
+    entity_globs:
+      - sensor.test*
+    entities:
+      - sensor.influxdb_database_size
+
+
+mqtt:
+  broker: localhost
+  discovery: true
+
+utility_meter:
+  energy_daily:
+    source: sensor.energy_spent
+    cycle: daily
+    tariffs:
+      - standard
+  energy_monthly:
+    source: sensor.energy_spent
+    cycle: monthly
+    tariffs:
+      - standard
+
+lovelace:
+  resources:
+    - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+      type: module
+    - url: /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
+      type: module
