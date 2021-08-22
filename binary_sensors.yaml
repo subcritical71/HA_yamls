@@ -1,0 +1,111 @@
+- platform: template
+  sensors:
+    smart_irrigation_z01_stats:
+      friendly_name: Smart Irrigation Z01 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone01','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z02_stats:
+      friendly_name: SmartIrrigation Z02 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone02','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z03_stats:
+      friendly_name: Smart Irrigation Z03 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone03','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z04_stats:
+      friendly_name: Smart Irrigation Z04 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone04','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z05_stats:
+      friendly_name: Smart Irrigation Z05 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone05','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z06_stats:
+      friendly_name: Smart Irrigation Z06 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone06','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z07_stats:
+      friendly_name: Smart Irrigation Z07 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone07','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z08_stats:
+      friendly_name: Smart Irrigation Z08 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone08','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z09_stats:
+      friendly_name: Smart Irrigation Z09 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone09','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+
+    smart_irrigation_z10_stats:
+      friendly_name: Smart Irrigation Z10 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone10','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
+      
+    smart_irrigation_z11_stats:
+      friendly_name: Smart Irrigation Z11 Stats Filter
+      value_template: >
+        {% if is_state('switch.elkm1_output_sprinklerzone11','on') and is_state('switch.elkm1_output_sprinklermasterrelay','on') %}
+          TRUE
+        {% else %}
+          FALSE
+        {% endif %}
+      icon_template: mdi:counter
